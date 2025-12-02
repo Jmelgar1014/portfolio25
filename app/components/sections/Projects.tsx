@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { ProjectItem } from "../ProjectItem";
 import ImageTest from "../../assets/test.png";
@@ -5,6 +6,7 @@ import BudgetWise from "../../assets/BudgetWiseScreenshot.png";
 import Landscape from "../../assets/MannysLawn Screenshot.png";
 import JobTracker from "../../assets/JobTracker Screenshot.png";
 import { Teachers } from "next/font/google";
+import { motion } from "motion/react";
 
 const Projects = () => {
   const projectItems = [
@@ -44,32 +46,61 @@ const Projects = () => {
   return (
     <>
       <main className="sm:px-32" id="Projects">
-        <div className="grid grid-cols-1 md:grid-cols-2 my-8">
-          <div className="px-4">
-            <h1 className="text-7xl text-white font-semibold text-center sm:text-left">
-              Featured Projects
-            </h1>
-            <p className="text-lg text-slate-500 mt-4 font-semibold text-center sm:text-left">
-              A selection of projects that demonstrate my passion for building
-              complex, user-centric web applications.
-            </p>
+        <motion.div
+          initial={{ opacity: 0, filter: "blur(10px)" }}
+          whileInView={{ opacity: 1, filter: "blur(0px)" }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true, amount: 0.5 }}
+        >
+          <div className="grid grid-cols-1 md:grid-cols-2 my-8">
+            <div className="px-4">
+              <h1 className="text-7xl text-white font-semibold text-center sm:text-left">
+                Featured Projects
+              </h1>
+              <p className="text-lg text-slate-500 mt-4 font-semibold text-center sm:text-left">
+                A selection of projects that demonstrate my passion for building
+                complex, user-centric web applications.
+              </p>
+            </div>
           </div>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2">
-          {projectItems.map((project, index) => {
+        </motion.div>
+
+        <div className="flex flex-col">
+          {/* Group items into rows of 2 */}
+          {Array.from({ length: Math.ceil(projectItems.length / 2) }).map((_, rowIndex) => {
+            const rowItems = projectItems.slice(rowIndex * 2, rowIndex * 2 + 2);
             return (
-              <ProjectItem
-                key={index}
-                ImagePath={project.ImagePath}
-                Title={project.Title}
-                Description={project.Desc}
-                LiveDemo={project.LiveLink}
-                GithubLink={project.GithubLink}
-                Tech={project.Tech}
-              />
+              <motion.div
+                key={rowIndex}
+                className="grid grid-cols-1 md:grid-cols-2"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                variants={{
+                  hidden: {},
+                  visible: {
+                    transition: {
+                      staggerChildren: 0.2
+                    }
+                  }
+                }}
+              >
+                {rowItems.map((project, index) => {
+                  return (
+                    <ProjectItem
+                      key={rowIndex * 2 + index}
+                      ImagePath={project.ImagePath}
+                      Title={project.Title}
+                      Description={project.Desc}
+                      LiveDemo={project.LiveLink}
+                      GithubLink={project.GithubLink}
+                      Tech={project.Tech}
+                    />
+                  );
+                })}
+              </motion.div>
             );
           })}
-          {/* <ProjectItem /> */}
         </div>
       </main>
     </>

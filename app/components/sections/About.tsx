@@ -1,5 +1,7 @@
+"use client";
 import React from "react";
 import { StackCards } from "../StackCards";
+import { motion } from "motion/react";
 
 const About = () => {
   const techStack = [
@@ -20,18 +22,34 @@ const About = () => {
         id="about"
       >
         <div className="">
-          <div className="">
+          <motion.div
+            initial={{ opacity: 0, filter: "blur(10px)" }}
+            whileInView={{ opacity: 1, filter: "blur(0px)" }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true, amount: 0.5 }}
+          >
             <h1 className="text-4xl font-semibold text-white mb-4 text-center sm:text-left sm:text-7xl">
-              Technological Mastery
+              Technical Skills
             </h1>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 place-items-center mx-10 sm:mx-2 ">
-            {techStack.map((stack, index) => {
-              return (
-                <StackCards key={index} title={stack.Title} tech={stack.Tech} />
-              );
-            })}
-          </div>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, filter: "blur(10px)" }}
+            whileInView={{ opacity: 1, filter: "blur(0px)" }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
+            <div className="grid grid-cols-1 md:grid-cols-2 place-items-center mx-10 sm:mx-2 ">
+              {techStack.map((stack, index) => {
+                return (
+                  <StackCards
+                    key={index}
+                    title={stack.Title}
+                    tech={stack.Tech}
+                  />
+                );
+              })}
+            </div>
+          </motion.div>
         </div>
         {/* <div className="px-4">test image</div> */}
       </main>

@@ -15,10 +15,13 @@ const About = () => {
   ];
   return (
     <>
-      <main className="grid grid-cols-1 lg:grid-cols-2 px-32 my-32" id="about">
+      <main
+        className="grid grid-cols-1 lg:grid-cols-2 sm:px-32 my-32"
+        id="about"
+      >
         <div className="">
           <div className="">
-            <h1 className="text-7xl font-semibold text-white mb-4">
+            <h1 className="text-4xl font-semibold text-white mb-4 text-center sm:text-left sm:text-7xl">
               Technological Mastery
             </h1>
           </div>
@@ -30,7 +33,7 @@ const About = () => {
             })}
           </div>
         </div>
-        <div className="px-4">test image</div>
+        {/* <div className="px-4">test image</div> */}
       </main>
     </>
   );

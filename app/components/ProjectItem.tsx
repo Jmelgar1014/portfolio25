@@ -3,6 +3,7 @@ import Image, { StaticImageData } from "next/image";
 import { ExternalLink, Github } from "lucide-react";
 import Link from "next/link";
 import GithubIcon from "./icons/GithubIcon";
+import CustomBage from "./CustomBage";
 
 interface projectDetails {
   ImagePath: StaticImageData;
@@ -10,6 +11,7 @@ interface projectDetails {
   Description: string;
   LiveDemo: string;
   GithubLink: string;
+  Tech: string[];
 }
 
 export const ProjectItem = ({
@@ -18,12 +20,13 @@ export const ProjectItem = ({
   Description,
   LiveDemo,
   GithubLink,
+  Tech,
 }: projectDetails) => {
   return (
     <>
-      <div className="border border-white/5 h-[600px] bg-slate-800/20 rounded-2xl m-8 ">
+      <div className="border border-white/5 sm:min-h-[600px] bg-slate-800/20 rounded-2xl m-8 ">
         <div className="flex flex-col h-full">
-          <div className="text-white h-1/2 w-full overflow-hidden rounded-t-2xl">
+          <div className="text-white h-[300px] w-full overflow-hidden rounded-t-2xl">
             <div className="h-full w-full hover:scale-125 transition-transform duration-800 rounded-t-2xl cursor-pointer">
               <Image
                 className="h-full w-full object-cover"
@@ -35,12 +38,12 @@ export const ProjectItem = ({
               />
             </div>
           </div>
-          <div className="text-white h-1/2 w-full px-8 py-4">
-            <div className="flex justify-between">
+          <div className="text-white flex-1 w-full px-8 py-4">
+            <div className="flex flex-col sm:flex-row sm:justify-between">
               <h1 className="text-4xl text-white font-semibold mb-4">
                 {Title}
               </h1>
-              <div className="flex items-center">
+              <div className="flex items-center justify-center">
                 <Link
                   href={LiveDemo}
                   target="_blank"
@@ -48,16 +51,23 @@ export const ProjectItem = ({
                 >
                   <ExternalLink size={20} className="" />
                 </Link>
-                <Link
-                  href={GithubLink}
-                  target="_blank"
-                  className="hover:bg-white/10 p-2 hover:rounded-2xl"
-                >
-                  <GithubIcon size={20} />
-                </Link>
+                {GithubLink && (
+                  <Link
+                    href={GithubLink}
+                    target="_blank"
+                    className="hover:bg-white/10 p-2 hover:rounded-2xl"
+                  >
+                    <GithubIcon size={20} />
+                  </Link>
+                )}
               </div>
             </div>
             <p className="text-slate-500 font-medium">{Description}</p>
+            <div className="my-4">
+              {Tech.map((item, index) => {
+                return <CustomBage key={index} tech={item} />;
+              })}
+            </div>
           </div>
         </div>
       </div>

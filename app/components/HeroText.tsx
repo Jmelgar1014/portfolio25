@@ -6,11 +6,13 @@ import React from "react";
 const HeroText = () => {
   return (
     <>
-      <main className="mx-auto px-4 h-screen flex flex-col justify-center">
-        <div className="flex flex-col justify-center items-center ">
-          <h1 className="font-semibold text-7xl text-white">Building the</h1>
+      <main className=" px-4 h-screen flex flex-col justify-center w-full">
+        <div className="flex flex-col justify-center items-center">
+          <h1 className="font-semibold text-4xl sm:text-7xl text-white">
+            Building the
+          </h1>
           <br />
-          <h1 className="font-semibold text-7xl bg-gradient-to-br from-violet-600 to-blue-500 bg-clip-text text-transparent h-24">
+          <h1 className=" font-semibold text-4xl sm:text-7xl bg-gradient-to-br from-violet-600 to-blue-500 bg-clip-text text-transparent h-24">
             Digital Future
           </h1>
         </div>

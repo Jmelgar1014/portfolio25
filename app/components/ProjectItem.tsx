@@ -28,14 +28,14 @@ export const ProjectItem = ({
       <motion.div
         variants={{
           hidden: { opacity: 0, y: -100 },
-          visible: { opacity: 1, y: 0 }
+          visible: { opacity: 1, y: 0 },
         }}
         transition={{ duration: 0.5 }}
       >
         <div className="border border-white/5 sm:min-h-[600px] bg-slate-800/20 rounded-2xl m-8 ">
           <div className="flex flex-col h-full">
             <div className="text-white h-[300px] w-full overflow-hidden rounded-t-2xl">
-              <div className="h-full w-full hover:scale-125 transition-transform duration-800 rounded-t-2xl cursor-pointer">
+              <div className="h-full w-full hover:scale-125 transition-transform duration-300 rounded-t-2xl cursor-pointer">
                 <Image
                   className="h-full w-full object-cover"
                   src={ImagePath}

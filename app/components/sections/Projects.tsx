@@ -47,8 +47,8 @@ const Projects = () => {
     <>
       <main className="sm:px-32" id="Projects">
         <motion.div
-          initial={{ opacity: 0, filter: "blur(10px)" }}
-          whileInView={{ opacity: 1, filter: "blur(0px)" }}
+          initial={{ opacity: 0, y: -100 }}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true, amount: 0.5 }}
         >
@@ -67,40 +67,45 @@ const Projects = () => {
 
         <div className="flex flex-col">
           {/* Group items into rows of 2 */}
-          {Array.from({ length: Math.ceil(projectItems.length / 2) }).map((_, rowIndex) => {
-            const rowItems = projectItems.slice(rowIndex * 2, rowIndex * 2 + 2);
-            return (
-              <motion.div
-                key={rowIndex}
-                className="grid grid-cols-1 md:grid-cols-2"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
-                variants={{
-                  hidden: {},
-                  visible: {
-                    transition: {
-                      staggerChildren: 0.2
-                    }
-                  }
-                }}
-              >
-                {rowItems.map((project, index) => {
-                  return (
-                    <ProjectItem
-                      key={rowIndex * 2 + index}
-                      ImagePath={project.ImagePath}
-                      Title={project.Title}
-                      Description={project.Desc}
-                      LiveDemo={project.LiveLink}
-                      GithubLink={project.GithubLink}
-                      Tech={project.Tech}
-                    />
-                  );
-                })}
-              </motion.div>
-            );
-          })}
+          {Array.from({ length: Math.ceil(projectItems.length / 2) }).map(
+            (_, rowIndex) => {
+              const rowItems = projectItems.slice(
+                rowIndex * 2,
+                rowIndex * 2 + 2
+              );
+              return (
+                <motion.div
+                  key={rowIndex}
+                  className="grid grid-cols-1 md:grid-cols-2"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.3 }}
+                  variants={{
+                    hidden: {},
+                    visible: {
+                      transition: {
+                        staggerChildren: 0.2,
+                      },
+                    },
+                  }}
+                >
+                  {rowItems.map((project, index) => {
+                    return (
+                      <ProjectItem
+                        key={rowIndex * 2 + index}
+                        ImagePath={project.ImagePath}
+                        Title={project.Title}
+                        Description={project.Desc}
+                        LiveDemo={project.LiveLink}
+                        GithubLink={project.GithubLink}
+                        Tech={project.Tech}
+                      />
+                    );
+                  })}
+                </motion.div>
+              );
+            }
+          )}
         </div>
       </main>
     </>

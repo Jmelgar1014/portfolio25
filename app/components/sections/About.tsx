@@ -2,6 +2,8 @@
 import React from "react";
 import { StackCards } from "../StackCards";
 import { motion } from "motion/react";
+import IconContainer from "../IconContainer";
+import { iconList } from "../icons/iconList";
 
 const About = () => {
   const techStack = [
@@ -23,8 +25,8 @@ const About = () => {
       >
         <div className="">
           <motion.div
-            initial={{ opacity: 0, filter: "blur(10px)" }}
-            whileInView={{ opacity: 1, filter: "blur(0px)" }}
+            initial={{ opacity: 0, y: -100 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true, amount: 0.5 }}
           >
@@ -33,10 +35,10 @@ const About = () => {
             </h1>
           </motion.div>
           <motion.div
-            initial={{ opacity: 0, filter: "blur(10px)" }}
-            whileInView={{ opacity: 1, filter: "blur(0px)" }}
+            initial={{ opacity: 0, y: -100 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.5 }}
           >
             <div className="grid grid-cols-1 md:grid-cols-2 place-items-center mx-10 sm:mx-2 ">
               {techStack.map((stack, index) => {
@@ -50,6 +52,13 @@ const About = () => {
               })}
             </div>
           </motion.div>
+        </div>
+        <div className="px-4">
+          <div className="grid grid-cols-5 place-content-center h-full w-full">
+            {iconList.map((icon, index) => {
+              return <IconContainer key={index} Icon={icon.IconName} />;
+            })}
+          </div>
         </div>
         {/* <div className="px-4">test image</div> */}
       </main>

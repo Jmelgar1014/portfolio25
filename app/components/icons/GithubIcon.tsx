@@ -1,10 +1,10 @@
 import React from "react";
 
 interface iconDetails {
-  size: number;
+  size?: number;
 }
 
-const GithubIcon = ({ size }: iconDetails) => {
+const GithubIcon = ({ size = 20 }: iconDetails) => {
   return (
     <svg
       role="img"

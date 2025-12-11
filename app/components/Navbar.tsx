@@ -7,13 +7,13 @@ import React from "react";
 const Navbar = () => {
   return (
     <>
-      <header className=" fixed top-0 left-0 flex justify-center px-4 z-50 w-full">
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8, ease: "easeIn" }}
-          viewport={{ once: true }}
-        >
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8, ease: "easeIn" }}
+        viewport={{ once: true }}
+      >
+        <header className=" fixed top-0 left-0 flex justify-center px-4 z-50 w-full">
           <nav className=" bg-slate-300/5 backdrop-blur-sm border border-white/5 rounded-3xl sm:w-96  w-full my-4 shadow-lg sm:h-12 flex items-center justify-center">
             <ul className="flex flex-col sm:flex-row sm:justify-center">
               <li className="m-2  hover:border-white/25 rounded-xl px-4 py-1 hover:bg-slate-200/15 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)]">
@@ -42,8 +42,8 @@ const Navbar = () => {
               </li>
             </ul>
           </nav>
-        </motion.div>
-      </header>
+        </header>
+      </motion.div>
     </>
   );
 };

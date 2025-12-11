@@ -50,7 +50,7 @@ const Projects = () => {
           initial={{ opacity: 0, y: -100 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          viewport={{ once: true, amount: 0.5 }}
+          viewport={{ once: true, amount: 0.8 }}
         >
           <div className="grid grid-cols-1 md:grid-cols-2 my-8">
             <div className="px-4">

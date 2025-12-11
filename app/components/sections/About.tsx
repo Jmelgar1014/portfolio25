@@ -20,7 +20,7 @@ const About = () => {
   return (
     <>
       <main
-        className="grid grid-cols-1 lg:grid-cols-2 sm:px-32 my-32"
+        className="grid grid-cols-1 lg:grid-cols-2 sm:px-32 mb-64 mt-32"
         id="about"
       >
         <div className="">
@@ -28,15 +28,15 @@ const About = () => {
             initial={{ opacity: 0, y: -100 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            viewport={{ once: true, amount: 0.5 }}
+            viewport={{ once: true, amount: 0.8 }}
           >
             <h1 className="text-4xl font-semibold text-white mb-4 text-center sm:text-left sm:text-7xl">
               Technical Skills
             </h1>
           </motion.div>
           <motion.div
-            initial={{ opacity: 0, y: -100 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true, amount: 0.5 }}
           >
@@ -54,11 +54,20 @@ const About = () => {
           </motion.div>
         </div>
         <div className="px-4">
-          <div className="grid grid-cols-5 place-content-center h-full w-full">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={{
+              hidden: {},
+              visible: { transition: { staggerChildren: 0.1 } },
+            }}
+            className="grid grid-cols-5 place-content-center h-full w-full"
+          >
             {iconList.map((icon, index) => {
               return <IconContainer key={index} Icon={icon.IconName} />;
             })}
-          </div>
+          </motion.div>
         </div>
         {/* <div className="px-4">test image</div> */}
       </main>

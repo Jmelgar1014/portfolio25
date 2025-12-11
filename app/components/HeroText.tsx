@@ -12,7 +12,7 @@ const HeroText = () => {
         <motion.div
           initial={{ opacity: 0, y: -100 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true }}
         >
           <div className="flex flex-col justify-center items-center">
@@ -32,7 +32,11 @@ const HeroText = () => {
           </div>
           <div className="flex justify-center my-4">
             <Link href="https://github.com/Jmelgar1014" target="_blank">
-              <motion.div whileHover={{ translateY: -3 }}>
+              <motion.div
+                whileHover={{ translateY: -3 }}
+                whileTap={{ scale: 0.9 }}
+                transition={{ type: "spring" }}
+              >
                 <Button className="cursor-pointer text-black bg-white rounded-2xl  font-semibold hover:bg-white hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] ">
                   View my Work <ArrowRight />
                 </Button>
@@ -42,7 +46,11 @@ const HeroText = () => {
               href="https://linkedin.com/in/jose-melgar2019"
               target="_blank"
             >
-              <motion.div whileHover={{ translateY: -3 }}>
+              <motion.div
+                whileHover={{ translateY: -3 }}
+                whileTap={{ scale: 0.9 }}
+                transition={{ type: "spring" }}
+              >
                 <Button className="cursor-pointer text-white bg-slate-800/40 border font-semibold border-white/5 ml-4 rounded-2xl hover:bg-slate-800/40 hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] hover:border hover:border-white/30 ">
                   Let&apos;s Connect
                 </Button>

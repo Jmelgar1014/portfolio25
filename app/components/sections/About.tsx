@@ -25,12 +25,12 @@ const About = () => {
       >
         <div className="mb-14">
           <motion.div
-            initial={{ opacity: 0, x: -100 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true, amount: 0.8 }}
           >
-            <h1 className="text-4xl font-semibold text-white mb-4 text-center sm:text-left sm:text-7xl">
+            <h1 className="text-7xl font-semibold text-white mb-4 text-center sm:text-left sm:text-7xl">
               Technical Skills
             </h1>
           </motion.div>

@@ -51,7 +51,7 @@ export const ProjectItem = ({
                 <h1 className="text-4xl text-white font-semibold mb-4">
                   {Title}
                 </h1>
-                <div className="flex items-center justify-center">
+                <div className="flex items-center justify-center ">
                   <Link
                     href={LiveDemo}
                     target="_blank"

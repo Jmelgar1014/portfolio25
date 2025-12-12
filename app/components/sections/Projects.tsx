@@ -47,8 +47,8 @@ const Projects = () => {
     <>
       <main className="sm:px-32" id="Projects">
         <motion.div
-          initial={{ opacity: 0, x: -100 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true, amount: 0.8 }}
         >
@@ -76,7 +76,7 @@ const Projects = () => {
               return (
                 <motion.div
                   key={rowIndex}
-                  className="grid grid-cols-1 md:grid-cols-2"
+                  className="grid grid-cols-1 lg:grid-cols-2"
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true, amount: 0.3 }}

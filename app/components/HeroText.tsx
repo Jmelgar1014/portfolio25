@@ -15,12 +15,12 @@ const HeroText = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true }}
         >
-          <div className="flex flex-col justify-center items-center">
-            <h1 className="font-semibold text-4xl sm:text-7xl text-white">
+          <div className="flex flex-col justify-center items-center mb-4">
+            <h1 className="font-semibold text-4xl sm:text-7xl text-white text-center">
               Full-Stack Developer
             </h1>
             <br />
-            <h1 className="text-center font-semibold text-4xl sm:text-7xl bg-gradient-to-br from-violet-600 to-blue-500 bg-clip-text text-transparent h-24">
+            <h1 className="text-center font-semibold text-4xl sm:text-7xl bg-gradient-to-br from-violet-600 to-blue-500 bg-clip-text text-transparent">
               Building Production-Ready Applications
             </h1>
           </div>

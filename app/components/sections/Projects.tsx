@@ -30,7 +30,7 @@ const Projects = () => {
       ImagePath: JobTracker,
       Title: "JobTracker",
       Desc: "Tracker that allows users to enter all job information and able to update their application from applied to, interview, offer, or rejected.",
-      LiveLink: "https://budgetflow-nine.vercel.app/",
+      LiveLink: "https://apptracking.netlify.app/",
       GithubLink: "https://github.com/Jmelgar1014/budget-dash",
       Tech: ["ReactJs", "Javascript", "C#", "Supabase", "Tanstack"],
     },
@@ -47,10 +47,10 @@ const Projects = () => {
     <>
       <main className="sm:px-32" id="Projects">
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0, x: -100 }}
+          whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          viewport={{ once: true, amount: 0.8 }}
+          viewport={{ once: true, amount: 0.3 }}
         >
           <div className="grid grid-cols-1 md:grid-cols-2 my-8">
             <div className="px-4">
